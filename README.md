@@ -54,6 +54,22 @@ manages the rings and the requests from a private dashboard.
 
 ---
 
+---
+
+## Milestones
+
+The project was built locally and pushed to GitHub together, so each milestone below
+points to the files that cover it instead of a separate commit.
+
+| Milestone | What it covers | Where to find it |
+|---|---|---|
+| **1. Scaffold, wireframes, schema** | One repo with `client/` (React + Vite + React Router) and `server/` (Express); test route `GET /api/health`; MongoDB connection from `MONGODB_URI` in `.env`; `.env` in `.gitignore`; wireframes; database schema (users, products, orders) | `client/src/App.jsx`, `server/src/app.js`, `server/src/config/db.js`, `server/src/config/env.js`, `.gitignore`, `docs/wireframes/`, [Database](#database) |
+| **2. Core back end** | Signup and login with bcrypt-hashed passwords and JWT; protected routes (`requireAuth`, `requireAdmin`) return 401/403; RESTful CRUD for products, orders and favourites; zod validation with clear error messages; secrets only in `.env` | `server/src/routes/`, `server/src/middleware/auth.js`, `server/src/middleware/validate.js`, `server/src/validation/schemas.js`, `server/src/models/`, [API.md](API.md) |
+| **3. Front end integrated** | React calls the Express API through `apiFetch`; signup, login and logout from the UI; protected pages (Account, Dashboard) need login; shop, cart, order requests, status tracking, admin dashboard; third-party APIs (ImageKit, gold-api.com); responsive on mobile and desktop | `client/src/api/client.js`, `client/src/auth/AuthContext.jsx`, `client/src/components/ProtectedRoute.jsx`, `client/src/pages/`, `server/src/config/imagekit.js`, `server/src/utils/market.js` |
+| **4. Deployment** | Front end on Vercel, API on Render, database on MongoDB Atlas; secrets set as environment variables on Render and Vercel | Live site and Live API links at the top, [Deployment](#deployment) |
+
+---
+
 ## Architecture
 
 ```
